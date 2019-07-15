@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+		<link rel="stylesheet" href="picker.css" />
+	</head>
+	<body>
+		<div class="page">
+			<form>
+				<div id="ele" style="margin-top: 100px; background-color: #F3F3F3;line-height: 50px;">
+					picker值：<input id="input" type="text" value="" placeholder="" />
+				</div>
+			</form>
+			
+		</div> <!--page-->
+	</body>
+	<script type="text/javascript" src="picker.js"></script>
+	<script type="text/javascript">
+		var ele = document.querySelector("#ele"),	
+			put = document.querySelector("#input");
+		mui.init();
+		mui.ready(function(){
+			var picker = new mui.PopPicker({ layer:1 });
+			picker.setData([{
+				value: '001',
+				text: '狗'
+			},
+			{
+				value: '001',
+				text: '兔子'
+			},
+			{
+				value: '002',
+				text: '猫'
+			}]);
+			ele.onclick = function(){
+				picker.show(function(items){
+					put.value = items[0].text;
+				});
+			};
+		});
+		
+	</script>
+</html>
